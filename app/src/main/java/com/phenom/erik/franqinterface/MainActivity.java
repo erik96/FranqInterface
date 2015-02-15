@@ -1,6 +1,8 @@
 package com.phenom.erik.franqinterface;
 
 import android.app.Activity;
+import android.content.res.AssetManager;
+import android.os.Environment;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
@@ -9,6 +11,7 @@ import android.support.v4.app.FragmentManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -20,10 +23,17 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.phenom.erik.franqinterface.Fragments.Welcome;
+import com.phenom.erik.franqinterface.Util.Constants;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 
 public class MainActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks, Constants {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -48,6 +58,9 @@ public class MainActivity extends ActionBarActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        createSDFolder();
+        copyAssets();
     }
 
     @Override
@@ -160,6 +173,65 @@ public class MainActivity extends ActionBarActivity
             super.onAttach(activity);
             ((MainActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
+        }
+    }
+
+    private void createSDFolder() {
+        File direct = new File(Environment.getExternalStorageDirectory()+"/FranqInterface");
+        if(!direct.exists()) {
+            direct.mkdir();
+        }
+
+        direct = new File(Environment.getExternalStorageDirectory()+"/FranqInterface/verbe");
+        if(!direct.exists()) {
+            direct.mkdir();
+        }
+    }
+
+    private void copyAssets() {
+        AssetManager assetManager = getAssets();
+        String[] files = null;
+        try {
+            files = assetManager.list("");
+        } catch (IOException e) {
+            Log.e(TAG, "Failed to get asset file list.", e);
+        }
+        for(String filename : files) {
+            InputStream in = null;
+            OutputStream out = null;
+            if(filename.contains("webkit") || filename.contains("images") || filename.contains("sounds"))
+                continue;
+            try {
+                in = assetManager.open(filename);
+                File outFile = new File(Environment.getExternalStorageDirectory()+"/FranqInterface/verbe/",filename);
+                out = new FileOutputStream(outFile);
+                copyFile(in, out);
+            } catch(IOException e) {
+                Log.e(TAG, "Failed to copy asset file: " + filename, e);
+            }
+            finally {
+                if (in != null) {
+                    try {
+                        in.close();
+                    } catch (IOException e) {
+                        // NOOP
+                    }
+                }
+                if (out != null) {
+                    try {
+                        out.close();
+                    } catch (IOException e) {
+                        // NOOP
+                    }
+                }
+            }
+        }
+    }
+    private void copyFile(InputStream in, OutputStream out) throws IOException {
+        byte[] buffer = new byte[1024];
+        int read;
+        while((read = in.read(buffer)) != -1){
+            out.write(buffer, 0, read);
         }
     }
 
