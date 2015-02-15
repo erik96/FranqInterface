@@ -152,6 +152,11 @@ public class MainActivity extends ActionBarActivity
         if(!direct.exists()) {
             direct.mkdir();
         }
+
+        direct = new File(Environment.getExternalStorageDirectory()+"/FranqInterface/audio");
+        if(!direct.exists()) {
+            direct.mkdir();
+        }
     }
 
     private void copyAssets() {
@@ -194,7 +199,7 @@ public class MainActivity extends ActionBarActivity
         }
     }
     private void copyFile(InputStream in, OutputStream out) throws IOException {
-        byte[] buffer = new byte[1024];
+        byte[] buffer = new byte[8192];
         int read;
         while((read = in.read(buffer)) != -1){
             out.write(buffer, 0, read);

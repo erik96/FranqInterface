@@ -2,6 +2,8 @@ package com.phenom.erik.franqinterface.Fragments;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.ListPreference;
@@ -18,6 +20,7 @@ import com.phenom.erik.franqinterface.Util.Constants;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -35,10 +38,10 @@ public class Verbe extends PreferenceFragment implements Constants {
 
         mContext = getActivity();
 
-        this.setPreferenceScreen(createPreferenceHierarchy1());
+        this.setPreferenceScreen(createPreferenceHierarchy());
     }
 
-    public PreferenceScreen createPreferenceHierarchy1(){
+    public PreferenceScreen createPreferenceHierarchy(){
 
         String name;
 
@@ -54,9 +57,11 @@ public class Verbe extends PreferenceFragment implements Constants {
             if (f.isFile()) {
                 name = f.getName();
 
+                if(name.contains("mp3")) continue;
+
                 Preference pref = new Preference(mContext);
                 pref.setTitle(name);
-                pref.setKey("key");
+                pref.setKey(name);
                 cat1.addPreference(pref);
             }
         }
@@ -67,8 +72,10 @@ public class Verbe extends PreferenceFragment implements Constants {
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
 
-        if(preference != null)
-            showDialog((String) preference.getTitle().toString());
+        if(preference != null) {
+            String title = (String) preference.getTitle().toString();
+            showDialog(title);
+        }
 
         return true;
     }
@@ -78,6 +85,20 @@ public class Verbe extends PreferenceFragment implements Constants {
         final Dialog dialog = new Dialog(mContext);
         dialog.setTitle(title);
         dialog.setContentView(R.layout.table_dialog);
+
+        String mp3Path = Environment.getExternalStorageDirectory()+"/FranqInterface/verbe/" + title + ".mp3";
+
+        if(new File(mp3Path).exists()) {
+            MediaPlayer mediaPlayer = new MediaPlayer();
+            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            try {
+                mediaPlayer.setDataSource(mp3Path);
+                mediaPlayer.prepare();
+                mediaPlayer.start();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
         try {
             // open the file for reading
