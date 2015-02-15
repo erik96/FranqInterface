@@ -44,9 +44,8 @@ public class Verbe extends PreferenceFragment implements Constants {
 
         PreferenceScreen root = getPreferenceManager().createPreferenceScreen(mContext);
 
-        // category 1 created programmatically
         PreferenceCategory cat1 = new PreferenceCategory(mContext);
-        cat1.setTitle("Present");
+        cat1.setTitle("Present"); //Temp
         root.addPreference(cat1);
 
         File dir = new File(Environment.getExternalStorageDirectory()+"/FranqInterface/verbe");
@@ -142,41 +141,5 @@ public class Verbe extends PreferenceFragment implements Constants {
 
         dialog.show();
     }
-
-
-
-
-    public PreferenceScreen createPreferenceHierarchy(){
-
-        mContext = getActivity();
-
-        PreferenceScreen root = getPreferenceManager().createPreferenceScreen(mContext);
-
-        // category 1 created programmatically
-        PreferenceCategory cat1 = new PreferenceCategory(mContext);
-        cat1.setTitle("title");
-        root.addPreference(cat1);
-
-        ListPreference list1 = new ListPreference(mContext);
-        list1.setTitle("Title");
-        list1.setSummary("Summary");
-        list1.setDialogTitle("Dialog Title");
-        list1.setKey("your_key");
-
-        CharSequence[] entries  = {"entry1","entry2"}; //or anything else that returns the right data
-        list1.setEntries(entries);
-        int length              = entries.length;
-        CharSequence[] values   = new CharSequence[length];
-        for (int i=0; i<length; i++){
-            CharSequence val = ""+i+1+"";
-            values[i] =  val;
-        }
-        list1.setEntryValues(values);
-
-        cat1.addPreference(list1);
-
-        return root;
-    }//end method
-
 
 }
