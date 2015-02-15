@@ -86,7 +86,7 @@ public class Verbe extends PreferenceFragment implements Constants {
         dialog.setTitle(title);
         dialog.setContentView(R.layout.table_dialog);
 
-        String mp3Path = Environment.getExternalStorageDirectory()+"/FranqInterface/verbe/" + title + ".mp3";
+        String mp3Path = Environment.getExternalStorageDirectory()+"/FranqInterface/audio/" + title + ".mp3";
 
         if(new File(mp3Path).exists()) {
             MediaPlayer mediaPlayer = new MediaPlayer();

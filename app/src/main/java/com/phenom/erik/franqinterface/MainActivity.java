@@ -174,7 +174,12 @@ public class MainActivity extends ActionBarActivity
                 continue;
             try {
                 in = assetManager.open(filename);
-                File outFile = new File(Environment.getExternalStorageDirectory()+"/FranqInterface/verbe/",filename);
+                File outFile;
+                if(filename.contains("mp3")) {
+                    outFile = new File(Environment.getExternalStorageDirectory()+"/FranqInterface/audio/",filename);
+                } else {
+                    outFile = new File(Environment.getExternalStorageDirectory()+"/FranqInterface/verbe/",filename);
+                }
                 out = new FileOutputStream(outFile);
                 copyFile(in, out);
             } catch(IOException e) {
