@@ -1,24 +1,16 @@
 package com.phenom.erik.franqinterface.Fragments;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
-import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.phenom.erik.franqinterface.R;
@@ -80,7 +72,7 @@ public class Verbe extends PreferenceFragment implements Constants {
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
 
-        if(preference != null && !preference.getKey().contains("search")) {
+        if(preference != null) {
             String title = (String) preference.getTitle().toString();
             showDialog(title);
         }
