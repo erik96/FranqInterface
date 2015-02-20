@@ -1,36 +1,20 @@
 package com.phenom.erik.franqinterface;
 
-import android.app.Activity;
-import android.content.res.AssetManager;
 import android.os.Environment;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
 
 import com.phenom.erik.franqinterface.Fragments.Verbe;
 import com.phenom.erik.franqinterface.Fragments.Welcome;
 import com.phenom.erik.franqinterface.Util.Constants;
+import com.phenom.erik.franqinterface.Util.Helpers;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 
 
 public class MainActivity extends ActionBarActivity
@@ -61,7 +45,9 @@ public class MainActivity extends ActionBarActivity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
         createSDFolder();
-        copyAssets();
+
+        Helpers.copyFolder("audio",this);
+        Helpers.copyFolder("verbe",this);
     }
 
     @Override
@@ -148,7 +134,7 @@ public class MainActivity extends ActionBarActivity
             direct.mkdir();
         }
 
-        direct = new File(Environment.getExternalStorageDirectory()+"/FranqInterface/verbe");
+        /*direct = new File(Environment.getExternalStorageDirectory()+"/FranqInterface/verbe");
         if(!direct.exists()) {
             direct.mkdir();
         }
@@ -156,59 +142,7 @@ public class MainActivity extends ActionBarActivity
         direct = new File(Environment.getExternalStorageDirectory()+"/FranqInterface/audio");
         if(!direct.exists()) {
             direct.mkdir();
-        }
-    }
-
-    private void copyAssets() {
-        AssetManager assetManager = getAssets();
-        String[] files = null;
-        try {
-            files = assetManager.list("");
-        } catch (IOException e) {
-            Log.e(TAG, "Failed to get asset file list.", e);
-        }
-        for(String filename : files) {
-            InputStream in = null;
-            OutputStream out = null;
-            if(filename.contains("webkit") || filename.contains("images") || filename.contains("sounds"))
-                continue;
-            try {
-                in = assetManager.open(filename);
-                File outFile;
-                if(filename.contains("mp3")) {
-                    outFile = new File(Environment.getExternalStorageDirectory()+"/FranqInterface/audio/",filename);
-                } else {
-                    outFile = new File(Environment.getExternalStorageDirectory()+"/FranqInterface/verbe/",filename);
-                }
-                out = new FileOutputStream(outFile);
-                copyFile(in, out);
-            } catch(IOException e) {
-                Log.e(TAG, "Failed to copy asset file: " + filename, e);
-            }
-            finally {
-                if (in != null) {
-                    try {
-                        in.close();
-                    } catch (IOException e) {
-                        // NOOP
-                    }
-                }
-                if (out != null) {
-                    try {
-                        out.close();
-                    } catch (IOException e) {
-                        // NOOP
-                    }
-                }
-            }
-        }
-    }
-    private void copyFile(InputStream in, OutputStream out) throws IOException {
-        byte[] buffer = new byte[8192];
-        int read;
-        while((read = in.read(buffer)) != -1){
-            out.write(buffer, 0, read);
-        }
+        } */
     }
 
 }
