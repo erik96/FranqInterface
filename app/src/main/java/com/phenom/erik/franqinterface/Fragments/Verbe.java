@@ -64,7 +64,10 @@ public class Verbe extends PreferenceFragment implements Constants {
         String title = (String) preference.getTitle().toString();
 
         android.app.Fragment firstFragment = null;
-        firstFragment = new VerbeFragment(title);
+        VerbeFragment verbeFragment = new VerbeFragment();
+        verbeFragment.setName(title);
+        firstFragment = verbeFragment;
+        verbeFragment = null;
 
         final android.app.Fragment finalFragment = firstFragment;
         new Handler().postDelayed(new Runnable() {

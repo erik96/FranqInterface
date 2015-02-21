@@ -31,11 +31,7 @@ public class VerbeFragment extends PreferenceFragment implements Constants {
     private Context mContext;
     private String name;
 
-    public VerbeFragment(){
-        //  An empty constructor for Android System to use, otherwise exception may occur.
-    }
-
-    public VerbeFragment(String name) { //TEMP
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -66,8 +62,8 @@ public class VerbeFragment extends PreferenceFragment implements Constants {
                 name1 = f1.getName();
 
                 Preference pref = new Preference(mContext);
-                pref.setTitle(name1);
-                pref.setKey(name);
+                pref.setTitle(name1); //verb
+                pref.setKey(name); //timp
                 pref.setIcon(R.drawable.ic_action_view_as_list);
                 cat1.addPreference(pref);
             }
@@ -124,7 +120,7 @@ public class VerbeFragment extends PreferenceFragment implements Constants {
                 // read every line of the file into the line-variable, on line at the time
                 do {
                     line = buffreader.readLine();
-                    Log.d(TAG, line);
+                    //Log.d(TAG, line);
 
                     switch (i) {
                         case 1:
