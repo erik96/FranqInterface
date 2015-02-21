@@ -37,7 +37,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="je "
+                android:text="I sg "
                 android:paddingRight="20dp"/>
 
             <TextView
@@ -55,7 +55,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="tu "
+                android:text="II sg "
                 android:paddingRight="20dp"/>
 
             <TextView
@@ -73,7 +73,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="il "
+                android:text="III sg "
                 android:paddingRight="20dp"/>
 
             <TextView
@@ -91,7 +91,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="nous "
+                android:text="I pl "
                 android:paddingRight="20dp"/>
 
             <TextView
@@ -110,7 +110,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="vous "
+                android:text="II pl "
                 android:paddingRight="20dp"/>
 
             <TextView
@@ -128,7 +128,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ils "
+                android:text="III pl "
                 android:paddingRight="20dp"/>
 
             <TextView

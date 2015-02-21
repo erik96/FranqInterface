@@ -6,6 +6,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
@@ -46,24 +47,21 @@ public class Verbe extends PreferenceFragment implements Constants {
 
         PreferenceScreen root = getPreferenceManager().createPreferenceScreen(mContext);
 
-        PreferenceCategory cat1 = new PreferenceCategory(mContext);
-        cat1.setTitle("Present"); //Temp
-        root.addPreference(cat1);
+        File folderVerbe = new File(Environment.getExternalStorageDirectory()+"/FranqInterface");
 
-        File dir = new File(Environment.getExternalStorageDirectory()+"/FranqInterface/verbe");
+        for(File f : folderVerbe.listFiles()) {
+            name = f.getName();
+            if (name.contains("audio")) continue;
 
-        for (File f : dir.listFiles()) {
-            if (f.isFile()) {
-                name = f.getName();
+            PreferenceCategory cat = new PreferenceCategory(mContext);
+            cat.setTitle(name);
+            root.addPreference(cat);
 
-                if(name.contains("mp3")) continue;
-
-                Preference pref = new Preference(mContext);
-                pref.setTitle(name);
-                pref.setKey(name);
-                pref.setIcon(R.drawable.ic_action_view_as_list);
-                cat1.addPreference(pref);
-            }
+            Preference pref = new Preference(mContext);
+            pref.setTitle(name);
+            pref.setKey(name);
+            //pref.setIcon(R.drawable.ic_action_view_as_list);
+            cat.addPreference(pref);
         }
 
         return root;
@@ -72,95 +70,24 @@ public class Verbe extends PreferenceFragment implements Constants {
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
 
-        if(preference != null) {
-            String title = (String) preference.getTitle().toString();
-            showDialog(title);
-        }
+        String title = (String) preference.getTitle().toString();
+
+        android.app.Fragment firstFragment = null;
+        firstFragment = new VerbeFragment(title);
+
+        final android.app.Fragment finalFragment = firstFragment;
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                android.app.FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, finalFragment)
+                        .commit();
+            }
+        }, 280);
 
         return true;
-    }
-
-    private void showDialog(String title) {
-
-        final Dialog dialog = new Dialog(mContext);
-        dialog.setTitle(title);
-        dialog.setContentView(R.layout.table_dialog);
-
-        String mp3Path = Environment.getExternalStorageDirectory()+"/FranqInterface/audio/" + title + ".mp3";
-
-        if(new File(mp3Path).exists()) {
-            MediaPlayer mediaPlayer = new MediaPlayer();
-            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-            try {
-                mediaPlayer.setDataSource(mp3Path);
-                mediaPlayer.prepare();
-                mediaPlayer.start();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        try {
-            // open the file for reading
-            InputStream instream = new FileInputStream(Environment.getExternalStorageDirectory()+"/FranqInterface/verbe/" + title);
-
-            // if file the available for reading
-            if (instream != null) {
-                // prepare the file for reading
-                InputStreamReader inputreader = new InputStreamReader(instream);
-                BufferedReader buffreader = new BufferedReader(inputreader);
-
-                String line;
-                int i = 1;
-                TextView textView;
-
-                // read every line of the file into the line-variable, on line at the time
-                do {
-                    line = buffreader.readLine();
-                    Log.d(TAG, line);
-
-                    switch (i) {
-                        case 1:
-                            textView = (TextView) dialog.findViewById(R.id.pers_1);
-                            textView.setText(line);
-                            break;
-
-                        case 2:
-                            textView = (TextView) dialog.findViewById(R.id.pers_2);
-                            textView.setText(line);
-                            break;
-
-                        case 3:
-                            textView = (TextView) dialog.findViewById(R.id.pers_3);
-                            textView.setText(line);
-                            break;
-
-                        case 4:
-                            textView = (TextView) dialog.findViewById(R.id.pers_1_pl);
-                            textView.setText(line);
-                            break;
-                        case 5:
-                            textView = (TextView) dialog.findViewById(R.id.pers_2_pl);
-                            textView.setText(line);
-                            break;
-
-                        case 6:
-                            textView = (TextView) dialog.findViewById(R.id.pers_3_pl);
-                            textView.setText(line);
-                            break;
-                        default:
-                            break;
-                    }
-                    i++;
-                } while (line != null);
-
-                instream.close();
-            }
-        } catch (Exception ex) {
-            Log.e(TAG, String.valueOf(ex) + "");
-        }
-
-        dialog.show();
     }
 
 }

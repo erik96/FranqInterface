@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
 
+import com.phenom.erik.franqinterface.Fragments.Expresii;
 import com.phenom.erik.franqinterface.Fragments.Verbe;
 import com.phenom.erik.franqinterface.Fragments.Welcome;
 import com.phenom.erik.franqinterface.Util.Constants;
@@ -47,7 +48,13 @@ public class MainActivity extends ActionBarActivity
         createSDFolder();
 
         Helpers.copyFolder("audio",this);
-        Helpers.copyFolder("verbe",this);
+        Helpers.copyFolder("1.Indicatif present",this);
+        Helpers.copyFolder("2.Indicatif imparfait",this);
+        Helpers.copyFolder("3.Indicatif passe compose",this);
+        Helpers.copyFolder("4.Indicatif passe simple",this);
+        Helpers.copyFolder("5.Indicatif plus-que-parfait",this);
+        Helpers.copyFolder("6.Indicatif futur",this);
+
     }
 
     @Override
@@ -60,8 +67,11 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 1:
                 firstFragment = new Verbe();
-             default:
-                 break;
+            default:
+                break;
+            case 2:
+                firstFragment = new Expresii();
+                break;
         }
 
         final android.app.Fragment finalFragment = firstFragment;
