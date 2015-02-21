@@ -1,9 +1,6 @@
 package com.phenom.erik.franqinterface.Fragments;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -11,18 +8,11 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
-import android.util.Log;
-import android.widget.TextView;
 
 import com.phenom.erik.franqinterface.R;
 import com.phenom.erik.franqinterface.Util.Constants;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
 /**
  * Created by Erik on 2/15/2015.
@@ -67,6 +57,7 @@ public class Verbe extends PreferenceFragment implements Constants {
         return root;
     }//end method
 
+
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
 
@@ -82,7 +73,9 @@ public class Verbe extends PreferenceFragment implements Constants {
 
                 android.app.FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
+                        .setCustomAnimations(R.anim.slide_in_left,R.anim.slide_out_right)
                         .replace(R.id.container, finalFragment)
+                        .addToBackStack("tag")
                         .commit();
             }
         }, 280);

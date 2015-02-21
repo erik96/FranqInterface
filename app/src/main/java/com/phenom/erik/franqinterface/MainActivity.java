@@ -82,9 +82,23 @@ public class MainActivity extends ActionBarActivity
                 android.app.FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, finalFragment)
+                        .addToBackStack("tag")
                         .commit();
             }
         }, 280);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        int count = getFragmentManager().getBackStackEntryCount();
+
+        if (count == 0) {
+            super.onBackPressed();
+        } else {
+            getFragmentManager().popBackStack();
+        }
+
     }
 
     public void onSectionAttached(int number) {
