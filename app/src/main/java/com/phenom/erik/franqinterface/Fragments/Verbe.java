@@ -73,10 +73,11 @@ public class Verbe extends PreferenceFragment implements Constants {
 
                 android.app.FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
-                        .setCustomAnimations(R.anim.slide_in_left,R.anim.slide_out_right)
+                        .setCustomAnimations(R.anim.slide_in_left,R.anim.slide_out_right,R.anim.slide_in_right,R.anim.slide_out_left)
                         .replace(R.id.container, finalFragment)
                         .addToBackStack("tag")
                         .commit();
+
             }
         }, 280);
 
