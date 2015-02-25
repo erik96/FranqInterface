@@ -110,7 +110,7 @@ public class VerbeFragment extends PreferenceFragment implements Constants {
             // if file the available for reading
             if (instream != null) {
                 // prepare the file for reading
-                InputStreamReader inputreader = new InputStreamReader(instream);
+                InputStreamReader inputreader = new InputStreamReader(instream,"UTF-8");
                 BufferedReader buffreader = new BufferedReader(inputreader);
 
                 String line;

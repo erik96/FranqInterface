@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="words">
+        <item>avoir</item>
+        <item>dog</item>
+        <item>mama</item>
+    </string-array>
+
+    <string-array name="descriptions">
+        <item>Verb</item>
+        <item>Animal</item>
+        <item>Person</item>
+    </string-array>
+
+</resources>

@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import com.phenom.erik.franqinterface.Fragments.Expresii;
 import com.phenom.erik.franqinterface.Fragments.Verbe;
 import com.phenom.erik.franqinterface.Fragments.Welcome;
+import com.phenom.erik.franqinterface.Fragments.Words;
 import com.phenom.erik.franqinterface.Util.Constants;
 import com.phenom.erik.franqinterface.Util.Helpers;
 
@@ -72,6 +73,9 @@ public class MainActivity extends ActionBarActivity
             case 2:
                 firstFragment = new Expresii();
                 break;
+            case 3:
+                firstFragment = new Words();
+                break;
         }
 
         final android.app.Fragment finalFragment = firstFragment;
@@ -112,6 +116,8 @@ public class MainActivity extends ActionBarActivity
             case 3:
                 mTitle = getString(R.string.title_section3);
                 break;
+            case 4:
+                mTitle = getString(R.string.title_section4);
         }
     }
 
