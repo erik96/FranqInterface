@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.phenom.erik.franqinterface.R;
@@ -206,15 +207,17 @@ public class Words extends Fragment implements Constants,Button.OnClickListener 
 
             if(s.equals(words[currentIndex])) {
                 textView.setTextColor(Color.parseColor(COLOR_GREEN));
+
+                Toast.makeText(mContext,"CORRECT !",Toast.LENGTH_SHORT).show();
             }
 
             if(s.length() == words[currentIndex].length() && !s.equals(words[currentIndex])) {
                 textView.setTextColor(Color.parseColor(COLOR_RED));
+
+                Toast.makeText(mContext,"WRONG !",Toast.LENGTH_SHORT).show();
             }
 
             updateViews();
         }
-
-
     }
 }
