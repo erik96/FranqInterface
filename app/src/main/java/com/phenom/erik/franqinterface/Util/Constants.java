@@ -10,4 +10,6 @@ public interface Constants {
     public static final String COLOR_BLACK = "#000000";
     public static final String COLOR_RED = "#ff0000";
     public static final String COLOR_GREEN = "#458B00";
+    public static final String COLOR_BLUE = "#0000ff";
+    public static final String COLOR_WHITE = "#ffffff";
 }

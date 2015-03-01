@@ -11,5 +11,19 @@
         <item>Animal</item>
         <item>Person</item>
     </string-array>
+    
+    <string-array name="quotes">
+        <item>On n\'apprend pas aux vieux singes à faire des grimaces</item>
+        <item>Chacun voit midi à sa porte</item>
+        <item>Rien ne sert de courir, il faut partir à point</item>
+        <item>On ne change pas une équipe qui gagne</item>
+        <item>Il n\'y a pas de fumée sans feu</item>
+        <item>Vaut mieux prévenir que guérir</item>
+        <item>Autres temps, autres mœurs</item>
+        <item>Un malheur ne vient jamais seul</item>
+        <item>Vouloir, c\'est pouvoir</item>
+        <item>Il faut réfléchir avant d\'agir</item>
+        <item>Si jeunesse savait, si vieillesse pouvait</item>
+    </string-array>
 
 </resources>

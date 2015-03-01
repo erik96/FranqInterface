@@ -3,10 +3,14 @@ package com.phenom.erik.franqinterface;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.widget.RemoteViews;
 import com.phenom.erik.franqinterface.Util.Constants;
+
+import java.util.Random;
 
 /**
  * Created by Erik on 2/19/2015.
@@ -14,20 +18,29 @@ import com.phenom.erik.franqinterface.Util.Constants;
 public class WidgetProvider extends AppWidgetProvider implements Constants {
 
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        final int N = appWidgetIds.length;
 
-        // Perform this loop procedure for each App Widget that belongs to this provider
-        for (int i=0; i<N; i++) {
-            int appWidgetId = appWidgetIds[i];
+        ComponentName thisWidget = new ComponentName(context,
+                WidgetProvider.class);
+        int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
 
-            onUpdateWidget(context,appWidgetManager,appWidgetId);
+        // Build the intent to call the service
+        Intent intent = new Intent(context.getApplicationContext(),
+                UpdateWidgetService.class);
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, allWidgetIds);
 
-        }
+        // Update the widgets via the service
+        context.startService(intent);
     }
 
-    private void onUpdateWidget(Context context,AppWidgetManager appWidgetManager, int appWidgetId) {
+    /*private void onUpdateWidget(Context context,AppWidgetManager appWidgetManager, int appWidgetId) {
 
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
+
+        String[] res = context.getResources().getStringArray(R.array.quotes);
+
+        final int index = new Random().nextInt(res.length);
+        views.setTextViewText(R.id.textViewName,res[index]);
+        views.setTextColor(R.id.textViewName, Color.parseColor(COLOR_GREEN));
 
         Intent intent = new Intent(context, MainActivity.class);
         intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
@@ -37,5 +50,5 @@ public class WidgetProvider extends AppWidgetProvider implements Constants {
 
         appWidgetManager.updateAppWidget(appWidgetId, views);
 
-    }
+    } */
 }

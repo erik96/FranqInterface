@@ -19,6 +19,8 @@
             </intent-filter>
         </activity>
 
+        <service android:name=".UpdateWidgetService"></service>
+
         <receiver class ="com.phenom.erik.franqinterface" android:name=".WidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

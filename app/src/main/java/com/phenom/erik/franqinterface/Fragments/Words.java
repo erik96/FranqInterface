@@ -1,9 +1,14 @@
 package com.phenom.erik.franqinterface.Fragments;
 
+import android.annotation.TargetApi;
 import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Color;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +24,8 @@ import android.widget.Toast;
 import com.phenom.erik.franqinterface.R;
 import com.phenom.erik.franqinterface.Util.Constants;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -63,6 +70,7 @@ public class Words extends Fragment implements Constants,Button.OnClickListener 
     }
 
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private View startGame(LayoutInflater inflater) {
 
         View mContainer = inflater.inflate(R.layout.words_layout, null);
@@ -145,6 +153,7 @@ public class Words extends Fragment implements Constants,Button.OnClickListener 
         linearLayout.removeAllViews();
         textView.setText("");
         textView.setTextColor(Color.parseColor(COLOR_BLACK));
+        deleteButton.setEnabled(true);
 
         final int index = new Random().nextInt(words.length);
         initLinearLayout(words[index], mContainer);
@@ -207,8 +216,24 @@ public class Words extends Fragment implements Constants,Button.OnClickListener 
 
             if(s.equals(words[currentIndex])) {
                 textView.setTextColor(Color.parseColor(COLOR_GREEN));
+                deleteButton.setEnabled(false);
 
                 Toast.makeText(mContext,"CORRECT !",Toast.LENGTH_SHORT).show();
+
+                String mp3Path = Environment.getExternalStorageDirectory()+"/FranqInterface/audio/" + words[currentIndex] + ".mp3";
+
+                if(new File(mp3Path).exists()) {
+                    MediaPlayer mediaPlayer = new MediaPlayer();
+                    mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                    try {
+                        mediaPlayer.setDataSource(mp3Path);
+                        mediaPlayer.prepare();
+                        mediaPlayer.start();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
             }
 
             if(s.length() == words[currentIndex].length() && !s.equals(words[currentIndex])) {
