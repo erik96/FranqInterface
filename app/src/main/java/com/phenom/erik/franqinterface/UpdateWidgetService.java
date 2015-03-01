@@ -3,17 +3,13 @@ package com.phenom.erik.franqinterface;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.IBinder;
-import android.util.Log;
 import android.widget.RemoteViews;
 
-import com.phenom.erik.franqinterface.R;
 import com.phenom.erik.franqinterface.Util.Constants;
-import com.phenom.erik.franqinterface.WidgetProvider;
 
 import java.util.Random;
 

@@ -1,13 +1,10 @@
 package com.phenom.erik.franqinterface;
 
-import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.widget.RemoteViews;
 import com.phenom.erik.franqinterface.Util.Constants;
 
 import java.util.Random;
@@ -31,24 +28,4 @@ public class WidgetProvider extends AppWidgetProvider implements Constants {
         // Update the widgets via the service
         context.startService(intent);
     }
-
-    /*private void onUpdateWidget(Context context,AppWidgetManager appWidgetManager, int appWidgetId) {
-
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
-
-        String[] res = context.getResources().getStringArray(R.array.quotes);
-
-        final int index = new Random().nextInt(res.length);
-        views.setTextViewText(R.id.textViewName,res[index]);
-        views.setTextColor(R.id.textViewName, Color.parseColor(COLOR_GREEN));
-
-        Intent intent = new Intent(context, MainActivity.class);
-        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, appWidgetId, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        views.setOnClickPendingIntent(R.id.widget_bg, pendingIntent);
-
-        appWidgetManager.updateAppWidget(appWidgetId, views);
-
-    } */
 }
