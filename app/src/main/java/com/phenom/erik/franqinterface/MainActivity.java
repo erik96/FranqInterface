@@ -17,6 +17,9 @@ import com.phenom.erik.franqinterface.Util.Constants;
 import com.phenom.erik.franqinterface.Util.Helpers;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 
 public class MainActivity extends ActionBarActivity
@@ -55,6 +58,15 @@ public class MainActivity extends ActionBarActivity
         Helpers.copyFolder("4.Indicatif passe simple",this);
         Helpers.copyFolder("5.Indicatif plus-que-parfait",this);
         Helpers.copyFolder("6.Indicatif futur",this);
+
+        //Create .nomedia in audio folder
+        File dir = new File(Environment.getExternalStorageDirectory() + "/FranqInterface/audio");
+        File nomediaFile = new File(dir, ".nomedia");
+        try {
+            nomediaFile.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
