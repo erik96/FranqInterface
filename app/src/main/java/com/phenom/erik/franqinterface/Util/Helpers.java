@@ -10,6 +10,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Erik on 2/20/2015.
@@ -76,6 +80,19 @@ public class Helpers implements Constants {
         int read;
         while((read = in.read(buffer)) != -1) {
             out.write(buffer, 0, read);
+        }
+    }
+
+    public static void shuffleArray(int[] array) {
+        List<Integer> list = new ArrayList<>();
+        for (int i : array) {
+            list.add(i);
+        }
+
+        Collections.shuffle(list);
+
+        for (int i = 0; i < list.size(); i++) {
+            array[i] = list.get(i);
         }
     }
 

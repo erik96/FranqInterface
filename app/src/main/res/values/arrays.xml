@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- WORDS -->
     <string-array name="words">
         <item>avoir</item>
         <item>dog</item>
@@ -11,7 +13,9 @@
         <item>Animal</item>
         <item>Person</item>
     </string-array>
-    
+
+
+    <!--WIDGET QUOTES -->
     <string-array name="quotes">
         <item>On n\'apprend pas aux vieux singes à faire des grimaces</item>
         <item>Chacun voit midi à sa porte</item>
@@ -24,6 +28,43 @@
         <item>Vouloir, c\'est pouvoir</item>
         <item>Il faut réfléchir avant d\'agir</item>
         <item>Si jeunesse savait, si vieillesse pouvait</item>
+    </string-array>
+
+
+    <!--CHANCE -->
+    <string-array name="questions">
+        <item>abc</item>
+        <item>bca</item>
+        <item>cba</item>
+        <item>cab</item>
+    </string-array>
+
+    <string-array name="question0">
+        <item>ABC</item>
+        <item>BCA</item>
+        <item>CBA</item>
+        <item>CAB</item>
+    </string-array>
+
+    <string-array name="question1">
+        <item>BCA</item>
+        <item>ABC</item>
+        <item>CBA</item>
+        <item>CAB</item>
+    </string-array>
+
+    <string-array name="question2">
+        <item>CBA</item>
+        <item>BCA</item>
+        <item>ABC</item>
+        <item>CAB</item>
+    </string-array>
+
+    <string-array name="question3">
+        <item>CAB</item>
+        <item>CBA</item>
+        <item>BCA</item>
+        <item>ABC</item>
     </string-array>
 
 </resources>

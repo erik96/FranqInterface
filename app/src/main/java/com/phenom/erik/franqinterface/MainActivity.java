@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
 
+import com.phenom.erik.franqinterface.Fragments.Chance;
 import com.phenom.erik.franqinterface.Fragments.Expresii;
 import com.phenom.erik.franqinterface.Fragments.Verbe;
 import com.phenom.erik.franqinterface.Fragments.Welcome;
@@ -88,6 +89,9 @@ public class MainActivity extends ActionBarActivity
             case 3:
                 firstFragment = new Words();
                 break;
+            case 4:
+                firstFragment = new Chance();
+                break;
         }
 
         final android.app.Fragment finalFragment = firstFragment;
@@ -130,6 +134,10 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 4:
                 mTitle = getString(R.string.title_section4);
+                break;
+            case 5:
+                mTitle = getString(R.string.title_section5);
+                break;
         }
     }
 
