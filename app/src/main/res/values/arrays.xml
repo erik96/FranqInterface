@@ -3,15 +3,19 @@
 
     <!-- WORDS -->
     <string-array name="words">
-        <item>avoir</item>
-        <item>dog</item>
-        <item>mama</item>
+        <item>AUTOMNE</item>
+        <item>ECOLE</item>
+        <item>NOEL</item>
+        <item>RENSEIGNEMENTS</item>
+        <item>VACANCES</item>
     </string-array>
 
     <string-array name="descriptions">
-        <item>Verb</item>
-        <item>Animal</item>
-        <item>Person</item>
+        <item>C\'est l\'une des quatre saisons, pendant laquelle on a besoin de parapluie.</item>
+        <item>On y va pour apprendre de nouvelles choses et pour se préparer pour la vie.</item>
+        <item>C\'est la fête dont le symbole est partout le sapin.</item>
+        <item>Tu es dans une vile étrangère et tu veux en savoir plus. Tu cherches un bureau de ...</item>
+        <item>On les attend toujours avec impatience.</item>
     </string-array>
 
 
@@ -33,38 +37,46 @@
 
     <!--CHANCE -->
     <string-array name="questions">
-        <item>abc</item>
-        <item>bca</item>
-        <item>cba</item>
-        <item>cab</item>
+        <item>Tu rencontres dans la rue une personne . Le soleil brille sur la ciel clair. Comment la salues-tu?</item>
+        <item>On pense revoir quelqu’un; alors on lui dit:</item>
+        <item>On se trouve dans ne situation embarrassante; il faut s’excuser et alor on dit:</item>
+        <item>Le moyen le plus simple d’identifier un objet que e’on voit est de le montrer a’un geste en utilisant l’expression:</item>
+        <item>Si on prend part à un événement important (un marriage, des fiançailles), on dit:</item>
     </string-array>
 
     <string-array name="question0">
-        <item>ABC</item>
-        <item>BCA</item>
-        <item>CBA</item>
-        <item>CAB</item>
+        <item>Bonjour!</item>
+        <item>Bonsoir!</item>
+        <item>Au revoir!</item>
+        <item>NULL</item>
     </string-array>
 
     <string-array name="question1">
-        <item>BCA</item>
-        <item>ABC</item>
-        <item>CBA</item>
-        <item>CAB</item>
+        <item>À tout à l’heure.</item>
+        <item>Il y a deux jeurs.</item>
+        <item>La semaine passée.</item>
+        <item>NULL</item>
     </string-array>
 
     <string-array name="question2">
-        <item>CBA</item>
-        <item>BCA</item>
-        <item>ABC</item>
-        <item>CAB</item>
+        <item>Je suis desolé(e)! </item>
+        <item>Ce n’est pas grave!</item>
+        <item>Tous mes compliments!</item>
+        <item>NULL</item>
     </string-array>
 
     <string-array name="question3">
-        <item>CAB</item>
-        <item>CBA</item>
-        <item>BCA</item>
-        <item>ABC</item>
+        <item>Regardez / regarde ça! </item>
+        <item>Voilà…</item>
+        <item>Je ne sais pas!</item>
+        <item>NULL</item>
+    </string-array>
+
+    <string-array name="question4">
+        <item>Tous mes vœux de bonheur! </item>
+        <item>Je vous en prie!</item>
+        <item>Bravo!</item>
+        <item>NULL</item>
     </string-array>
 
 </resources>

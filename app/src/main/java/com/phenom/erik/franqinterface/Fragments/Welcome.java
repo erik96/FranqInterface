@@ -1,6 +1,7 @@
 package com.phenom.erik.franqinterface.Fragments;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,5 +26,11 @@ public class Welcome extends Fragment {
         View view = inflater.inflate(R.layout.welcome_layout, root, false);
 
         return view;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        getActivity().finish();
     }
 }

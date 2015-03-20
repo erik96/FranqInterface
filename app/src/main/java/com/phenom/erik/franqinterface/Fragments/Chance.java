@@ -3,7 +3,6 @@ package com.phenom.erik.franqinterface.Fragments;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +14,6 @@ import com.phenom.erik.franqinterface.R;
 import com.phenom.erik.franqinterface.Util.Constants;
 import com.phenom.erik.franqinterface.Util.Helpers;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -28,7 +24,6 @@ public class Chance extends Fragment implements Constants, Button.OnClickListene
     private String[] questions;
     private Context mContext;
 
-    private String q = "question";
     private String correct;
 
     private Button resetButton;
