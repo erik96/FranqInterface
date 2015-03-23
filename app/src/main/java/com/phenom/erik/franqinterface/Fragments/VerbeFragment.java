@@ -98,6 +98,12 @@ public class VerbeFragment extends PreferenceFragment implements Constants {
                 mediaPlayer.setDataSource(mp3Path);
                 mediaPlayer.prepare();
                 mediaPlayer.start();
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    public void onCompletion(MediaPlayer mp) {
+                        mp.release();
+
+                    }
+                });
             } catch (IOException e) {
                 e.printStackTrace();
             }
