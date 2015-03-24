@@ -79,4 +79,15 @@
         <item>NULL</item>
     </string-array>
 
+    <!--EXPRESII -->
+    <string-array name="expresii">
+        <item>saluer</item>
+        <item>telephone</item>
+        <item>presenter</item>
+        <item>interpeller</item>
+        <item>invitation</item>
+        <item>regrette</item>
+        <item>feliciter</item>
+    </string-array>
+
 </resources>
