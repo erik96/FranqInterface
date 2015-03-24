@@ -20,6 +20,24 @@ import java.util.Random;
  */
 public class Helpers implements Constants {
 
+    public static void createSDFolder() {
+        File direct = new File(Environment.getExternalStorageDirectory()+"/FranqInterface");
+        if(!direct.exists()) {
+            direct.mkdir();
+        }
+    }
+
+    public static void createNoMedia() {
+        //Create .nomedia in audio folder
+        File dir = new File(Environment.getExternalStorageDirectory() + "/FranqInterface/audio");
+        File nomediaFile = new File(dir, ".nomedia");
+        try {
+            nomediaFile.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void copyFolder(String name, Context mContext) {
         // "Name" is the name of your folder!
         AssetManager assetManager = mContext.getAssets();
@@ -95,49 +113,4 @@ public class Helpers implements Constants {
             array[i] = list.get(i);
         }
     }
-
-    /*private void copyAssets() {
-        AssetManager assetManager = getAssets();
-        String[] files = null;
-        try {
-            files = assetManager.list("");
-        } catch (IOException e) {
-            Log.e(TAG, "Failed to get asset file list.", e);
-        }
-        for(String filename : files) {
-            InputStream in = null;
-            OutputStream out = null;
-            if(filename.contains("webkit") || filename.contains("images") || filename.contains("sounds"))
-                continue;
-            try {
-                in = assetManager.open(filename);
-                File outFile;
-                if(filename.contains("mp3")) {
-                    outFile = new File(Environment.getExternalStorageDirectory()+"/FranqInterface/audio/",filename);
-                } else {
-                    outFile = new File(Environment.getExternalStorageDirectory()+"/FranqInterface/verbe/",filename);
-                }
-                out = new FileOutputStream(outFile);
-                copyFile(in, out);
-            } catch(IOException e) {
-                Log.e(TAG, "Failed to copy asset file: " + filename, e);
-            }
-            finally {
-                if (in != null) {
-                    try {
-                        in.close();
-                    } catch (IOException e) {
-                        // NOOP
-                    }
-                }
-                if (out != null) {
-                    try {
-                        out.close();
-                    } catch (IOException e) {
-                        // NOOP
-                    }
-                }
-            }
-        }
-    } */
 }

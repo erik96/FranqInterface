@@ -1,23 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/welcome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#000000"
             android:text="@string/welcome"
             android:textSize="46sp"
             android:gravity="center_horizontal"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="44dp"
+            android:layout_above="@+id/welcomeImage"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-        <TextView
-            android:id="@+id/created_by"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/welcomeImage"
+            android:src="@drawable/icon"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Created by ..."
-            android:textSize="26sp"
-            android:gravity="center_horizontal"
-            android:layout_below="@+id/welcome"/>
+            android:gravity="center"
+            android:layout_above="@+id/InnerRelativeLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="101dp" />
 
+        <RelativeLayout
+            android:id="@+id/InnerRelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="Raul Glodean &amp; Birgiser Erik"
+                android:textColor="#00336a"
+                android:layout_marginRight="10dp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
 </RelativeLayout>
