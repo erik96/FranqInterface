@@ -57,7 +57,7 @@ public class Expresii extends PreferenceFragment implements Constants {
 
             Preference pref = new Preference(mContext);
             pref.setTitle(title);
-            pref.setKey(title);//TODO: ICON
+            pref.setKey(title);
             if(p%2 == 0) {
                 pref.setIcon(R.drawable.ic_1);
             } else {
