@@ -41,9 +41,13 @@ public class Expresii extends PreferenceFragment implements Constants {
 
     public PreferenceScreen createPreferenceHierarchy(){
 
+        short p = 0;
+
         PreferenceScreen root = getPreferenceManager().createPreferenceScreen(mContext);
 
         for(String e : expresii) {
+
+            p++;
 
             String title = e.substring(0, 1).toUpperCase() + e.substring(1);
 
@@ -54,6 +58,11 @@ public class Expresii extends PreferenceFragment implements Constants {
             Preference pref = new Preference(mContext);
             pref.setTitle(title);
             pref.setKey(title);//TODO: ICON
+            if(p%2 == 0) {
+                pref.setIcon(R.drawable.ic_1);
+            } else {
+                pref.setIcon(R.drawable.ic_2);
+            }
             cat.addPreference(pref);
         }
 

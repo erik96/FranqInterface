@@ -100,11 +100,11 @@ public class NavigationDrawerFragment extends Fragment {
 
         ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[5];
 
-        drawerItem[0] = new ObjectDrawerItem(R.drawable.ic_action_view_as_list,getString(R.string.title_section1));
-        drawerItem[1] = new ObjectDrawerItem(R.drawable.ic_action_view_as_list, getString(R.string.title_section2));
-        drawerItem[2] = new ObjectDrawerItem(R.drawable.ic_action_view_as_list, getString(R.string.title_section3));
-        drawerItem[3] = new ObjectDrawerItem(R.drawable.ic_action_view_as_list,getString(R.string.title_section4));
-        drawerItem[4] = new ObjectDrawerItem(R.drawable.ic_action_view_as_list,getString(R.string.title_section5));
+        drawerItem[0] = new ObjectDrawerItem(R.drawable.ic_1,getString(R.string.title_section1));
+        drawerItem[1] = new ObjectDrawerItem(R.drawable.ic_2, getString(R.string.title_section2));
+        drawerItem[2] = new ObjectDrawerItem(R.drawable.ic_1, getString(R.string.title_section3));
+        drawerItem[3] = new ObjectDrawerItem(R.drawable.ic_2,getString(R.string.title_section4));
+        drawerItem[4] = new ObjectDrawerItem(R.drawable.ic_1,getString(R.string.title_section5));
 
         DrawerItemCustomAdapter adapter = new DrawerItemCustomAdapter(getActivity(), R.layout.listview_item_layout, drawerItem);
         mDrawerListView.setAdapter(adapter);
