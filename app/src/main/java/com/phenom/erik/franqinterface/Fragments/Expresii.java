@@ -45,13 +45,15 @@ public class Expresii extends PreferenceFragment implements Constants {
 
         for(String e : expresii) {
 
+            String title = e.substring(0, 1).toUpperCase() + e.substring(1);
+
             PreferenceCategory cat = new PreferenceCategory(mContext);
-            cat.setTitle(e);
+            cat.setTitle(title);
             root.addPreference(cat);
 
             Preference pref = new Preference(mContext);
-            pref.setTitle(e);
-            pref.setKey(e);//TODO: ICON
+            pref.setTitle(title);
+            pref.setKey(title);//TODO: ICON
             cat.addPreference(pref);
         }
 
@@ -61,11 +63,12 @@ public class Expresii extends PreferenceFragment implements Constants {
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
 
-        int id = getResources().getIdentifier("com.phenom.erik.franqinterface:drawable/" + preference.getTitle().toString(), null, null);
+        String title = preference.getTitle().toString().substring(0, 1).toLowerCase() + preference.getTitle().toString().substring(1);
+        int id = getResources().getIdentifier("com.phenom.erik.franqinterface:drawable/" + title, null, null);
 
         android.app.Fragment firstFragment = null;
         ExpresiiTemplate expresiiTemplate = new ExpresiiTemplate();
-        expresiiTemplate.init(id,preference.getTitle().toString());
+        expresiiTemplate.init(id,title);
         firstFragment = expresiiTemplate;
         expresiiTemplate = null;
 
