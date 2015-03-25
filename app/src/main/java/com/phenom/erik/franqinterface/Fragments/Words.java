@@ -45,16 +45,14 @@ public class Words extends Fragment implements Constants,Button.OnClickListener 
 
     private String[] words;
     private String[] descriptions;
+    private String[] descriptionsEng;
+    private String[] descriptionsRo;
+
+    private int position = 1;
 
     private View mContainer;
 
     private int currentIndex;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -62,7 +60,8 @@ public class Words extends Fragment implements Constants,Button.OnClickListener 
         mContext = getActivity();
         words = getResources().getStringArray(R.array.words);
         descriptions = getResources().getStringArray(R.array.descriptions);
-
+        descriptionsEng = getResources().getStringArray(R.array.descriptions_eng);
+        descriptionsRo = getResources().getStringArray(R.array.descriptions_ro);
 
         mContainer = startGame(inflater);
 
@@ -110,6 +109,8 @@ public class Words extends Fragment implements Constants,Button.OnClickListener 
 
         descriptionTextView = (TextView) mContainer.findViewById(R.id.description);
         descriptionTextView.setText(descriptions[index]);
+        descriptionTextView.setTextColor(Color.parseColor(COLOR_BLUE));
+        descriptionTextView.setOnClickListener(this);
 
         currentIndex = index;
 
@@ -125,8 +126,6 @@ public class Words extends Fragment implements Constants,Button.OnClickListener 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
 
         return mContainer;
     }
@@ -145,7 +144,6 @@ public class Words extends Fragment implements Constants,Button.OnClickListener 
             button.setOnClickListener(this);
             linearLayout.addView(button);
         }
-
     }
 
     private void reset() {
@@ -162,7 +160,7 @@ public class Words extends Fragment implements Constants,Button.OnClickListener 
         descriptionTextView.setText(descriptions[index]);
 
         currentIndex = index;
-
+        position = 1;
     }
 
     private void updateViews() {
@@ -191,6 +189,23 @@ public class Words extends Fragment implements Constants,Button.OnClickListener 
 
     @Override
     public void onClick(View v) {
+
+        TextView t = (TextView) v;
+
+        if (t == descriptionTextView) {
+            position++;
+
+            if(position == 2) {
+                descriptionTextView.setText(descriptionsEng[currentIndex]);
+            }
+            else if(position == 3) {
+                descriptionTextView.setText(descriptionsRo[currentIndex]);
+            } else if(position == 4) {
+                position = 1;
+                descriptionTextView.setText(descriptions[currentIndex]);
+            }
+            return;
+        }
 
         Button pressedButton = (Button) v;
 

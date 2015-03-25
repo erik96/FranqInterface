@@ -14,13 +14,6 @@ import com.phenom.erik.franqinterface.R;
 public class Welcome extends Fragment {
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setHasOptionsMenu(true);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup root, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.welcome_layout, root, false);
 

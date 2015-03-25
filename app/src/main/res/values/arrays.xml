@@ -18,6 +18,23 @@
         <item>On les attend toujours avec impatience.</item>
     </string-array>
 
+    <string-array name="descriptions_eng">
+        <item>This is one of the four seasons during which you need an umbrella.</item>
+        <item>This is the place we attend to further develop our knowledge and prepare for the adult life.</item>
+        <item>It is a worldwide celebration whose main symbol is Santa Claus.</item>
+        <item>You are in a foreign city and you want to ask for information. You are looking for an bureau of ...</item>
+        <item>The children are always looking forward to it.</item>
+    </string-array>
+
+    <string-array name="descriptions_ro">
+        <item>Unul din cele patru anotimpuri în cadrul căruia ai nevoie de umbrelă.</item>
+        <item>Este locul în care mergem de când suntem copii şi unde învăţăm lucruri noi şi ne pregătim pentru viaţă.</item>
+        <item>Este o sărbătoare cunoscută a cărei simbol pentru copii este Moş Crăciun.</item>
+        <item>Când te afli într-un oraş necunoscut şi vrei să alfi mai multe, cauţi un birou de ...</item>
+        <item>Copiii o aşteaptă mereu nerăbdători!</item>
+    </string-array>
+
+
 
     <!--WIDGET QUOTES -->
     <string-array name="quotes">
