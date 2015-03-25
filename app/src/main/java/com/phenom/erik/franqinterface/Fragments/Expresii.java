@@ -2,17 +2,11 @@ package com.phenom.erik.franqinterface.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.phenom.erik.franqinterface.R;
 import com.phenom.erik.franqinterface.Util.Constants;

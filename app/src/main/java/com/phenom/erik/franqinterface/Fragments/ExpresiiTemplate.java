@@ -2,12 +2,9 @@ package com.phenom.erik.franqinterface.Fragments;
 
 import android.app.Fragment;
 import android.content.Context;
-import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Environment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,15 +12,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.phenom.erik.franqinterface.R;
-import com.phenom.erik.franqinterface.Util.Constants;
-
-import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by Erik on 3/24/2015.
  */
-public class ExpresiiTemplate extends Fragment implements Constants, Button.OnClickListener {
+public class ExpresiiTemplate extends Fragment implements Button.OnClickListener {
 
     private ImageView imageView;
     private Button button;
