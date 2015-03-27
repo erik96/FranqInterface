@@ -142,6 +142,7 @@ public class Chance extends Fragment implements Constants, Button.OnClickListene
     }
 
     private void reset() {
+        fiftyButton.setEnabled(true);
         index = 0;
         intPoints = 10;
     }
