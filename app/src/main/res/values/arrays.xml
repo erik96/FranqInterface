@@ -65,35 +65,35 @@
         <item>Bonjour!</item>
         <item>Bonsoir!</item>
         <item>Au revoir!</item>
-        <item>NULL</item>
+        <item>Salut!</item>
     </string-array>
 
     <string-array name="question1">
         <item>À tout à l’heure.</item>
         <item>Il y a deux jeurs.</item>
         <item>La semaine passée.</item>
-        <item>NULL</item>
+        <item>Demain.</item>
     </string-array>
 
     <string-array name="question2">
         <item>Je suis desolé(e)! </item>
         <item>Ce n’est pas grave!</item>
         <item>Tous mes compliments!</item>
-        <item>NULL</item>
+        <item>Au revoir!</item>
     </string-array>
 
     <string-array name="question3">
         <item>Regardez / regarde ça! </item>
         <item>Voilà…</item>
         <item>Je ne sais pas!</item>
-        <item>NULL</item>
+        <item>Je vous en prie!</item>
     </string-array>
 
     <string-array name="question4">
         <item>Tous mes vœux de bonheur! </item>
         <item>Je vous en prie!</item>
         <item>Bravo!</item>
-        <item>NULL</item>
+        <item>À tes souhaits!</item>
     </string-array>
 
     <!--EXPRESII -->

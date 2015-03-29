@@ -160,7 +160,7 @@ public class Chance extends Fragment implements Constants, Button.OnClickListene
         if (b == fiftyButton) {
 
             if(intPoints < 5) {
-                Toast.makeText(mContext, "Not Enough Points !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "Il n’y a pas assez de points! ", Toast.LENGTH_SHORT).show();
                 return;
             } else {
                 intPoints-=5;
@@ -183,14 +183,16 @@ public class Chance extends Fragment implements Constants, Button.OnClickListene
             draw(globalContainer);
         } else {
             intPoints-=5;
-            textPoints.setText(Integer.toString(intPoints));
-            Toast.makeText(mContext, "WRONG !", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, "FAUT !", Toast.LENGTH_SHORT).show();
 
             if (intPoints < 0) {
                 changeFragment();
                 reset();
-                return;
+            } else {
+                textPoints.setText(Integer.toString(intPoints));
             }
+
+
         }
     }
 

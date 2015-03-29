@@ -26,13 +26,14 @@ public class ChanceOver extends Fragment implements Constants {
     public View onCreateView(LayoutInflater inflater, ViewGroup root, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.gameover_layout, root, false);
 
-        TextView textView = (TextView) view.findViewById(R.id.chanceScore);
+        TextView gameOver = (TextView) view.findViewById(R.id.gameOver);
+        TextView score = (TextView) view.findViewById(R.id.chanceScore);
+
         if (points < 0) {
-            textView.setTextColor(Color.parseColor(COLOR_RED));
-            textView.setText("Lost");
+            gameOver.setText("Reprends le jeu !");
         } else {
-            textView.setTextColor(Color.parseColor(COLOR_GREEN));
-            textView.setText("Score: " + Integer.toString(points));
+            gameOver.setText("Fin !");
+            score.setText(Integer.toString(points));
         }
 
         return view;

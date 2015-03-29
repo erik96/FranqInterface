@@ -254,7 +254,7 @@ public class Words extends Fragment implements Constants,Button.OnClickListener 
             if(s.length() == words[currentIndex].length() && !s.equals(words[currentIndex])) {
                 textView.setTextColor(Color.parseColor(COLOR_RED));
 
-                Toast.makeText(mContext,"WRONG !",Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext,"FAUT !",Toast.LENGTH_SHORT).show();
             }
 
             updateViews();
