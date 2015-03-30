@@ -39,12 +39,12 @@ public class MainActivity extends ActionBarActivity
 
         Helpers.copyFolder("audio",this);
         Helpers.copyFolder("1. Indicatif present",this);
-        Helpers.copyFolder("2. Indicatif imparfait",this);
-        Helpers.copyFolder("3. Indicatif passe compose",this);
-        Helpers.copyFolder("4. Conditionnel present",this);
-        Helpers.copyFolder("5. Conditionnel passe",this);
-        Helpers.copyFolder("6. Indicatif plus-que-parfait",this);
-        Helpers.copyFolder("7. Indicatif futur",this);
+        Helpers.copyFolder("2. Indicatif passe compose",this);
+        Helpers.copyFolder("3. Indicatif imparfait",this);
+        Helpers.copyFolder("4. Indicatif plus-que-parfait",this);
+        Helpers.copyFolder("5. Futur Simple",this);
+        Helpers.copyFolder("6. Conditionnel present",this);
+        Helpers.copyFolder("7. Conditionnel passe",this);
 
         Helpers.createNoMedia();
 
